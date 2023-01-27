@@ -29,7 +29,7 @@ Safety::Safety() : Node("safety_node"), m_speed(0.0)//, m_thresh(1)
     // Make a parameter for the threshold m_thresh
     auto param_desc = rcl_interfaces::msg::ParameterDescriptor{};
     param_desc.description = "Threshold value that is used to determine if the iTTC required automatic emergency braking";
-    this->declare_parameter("m_thresh", 1.0f, param_desc);  // Speed
+    this->declare_parameter("m_thresh", 1.15f, param_desc);  // Speed
 }
 
 void Safety::odom_callback(const nav_msgs::msg::Odometry::ConstSharedPtr msg)
