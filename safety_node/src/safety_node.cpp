@@ -41,7 +41,6 @@ void Safety::odom_callback(const nav_msgs::msg::Odometry::ConstSharedPtr msg)
 void Safety::scan_callback(const sensor_msgs::msg::LaserScan::ConstSharedPtr scan_msg) 
 {
     float ttc;
-    // float ttc_temp;
     // int hit_count = 0; // to filter out false positives (braking when collision isn't imminent)
 
     float curr_angle = scan_msg->angle_min;
@@ -61,7 +60,6 @@ void Safety::scan_callback(const sensor_msgs::msg::LaserScan::ConstSharedPtr sca
         }
 
         // Compute the time to collision
-        // float range_rate = std::max(-(m_speed * std::cos(curr_angle)), 0.0);
         float range_rate = -(m_speed * std::cos(curr_angle));
 
         if (range_rate < 0) { // if going forward
